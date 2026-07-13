@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SON HEUNG-MIN | THE LEGEND</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 2.1 UI/UX 공통 스타일 가이드 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050505; /* Deep Black */
+            color: #ffffff;
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 2.2 상단 히어로 섹션 (Hero Section) */
+        .hero {
+            height: 85vh;
+            position: relative;
+            /* 기획서에 입력하신 손흥민 세레머니 이미지 주소 반영 및 웅장한 그라데이션(Dim) 처리 */
+            background: linear-gradient(to bottom, rgba(5, 5, 5, 0.2) 0%, rgba(5, 5, 5, 0.95) 100%),
+                        linear-gradient(to right, rgba(5, 5, 5, 0.7) 0%, rgba(5, 5, 5, 0.1) 50%, rgba(5, 5, 5, 0.7) 100%),
+                        url('https://th.bing.com/th?id=OIF.71OhDshLTnn%2bbCJ85nfIxA&r=0&rs=1&pid=ImgDetMain&o=7&rm=3') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid #111113;
+        }
+
+        .hero-title-box {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 메인 타이포그래피 */
+        .hero-title-box h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 160px;
+            font-weight: 900;
+            letter-spacing: 25px;
+            line-height: 1;
+            color: #ffffff;
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.5), 0 0 10px rgba(0, 0, 0, 0.8);
+            margin-left: 25px;
+        }
+
+        /* 서브 타이틀 */
+        .hero-title-box p {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            letter-spacing: 8px;
+            color: #d4af37; /* Classic Gold */
+            margin-top: 15px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* 2.3 커리어 마일스톤 섹션 (Career Section) */
+        .career-section {
+            padding: 120px 0;
+            background-color: #050505;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            letter-spacing: 4px;
+            color: #d4af37; /* Classic Gold */
+        }
+
+        .section-title p {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* 5열 카드 그리드 배정 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .career-card {
+            background-color: #111113;
+            border: 1px solid #222225;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 마우스 오버(Hover) 인터랙션 효과 */
+        .career-card:hover {
+            transform: translateY(-12px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        /* 카드 내 이미지 공간 */
+        .card-img-box {
+            height: 150px;
+            background-color: #1a1a1f;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid #222225;
+        }
+
+        /* 각 카드 이미지 주소 매핑 구역 (기획서 매핑용) */
+        .card-01 .card-img-box { /* background-image: url('여기에_함부르크_또는_레버쿠젠_이미지_주소_입력'); */ }
+        .card-02 .card-img-box { /* background-image: url('여기에_토트넘_입단_초기_이미지_주소_입력'); */ }
+        .card-03 .card-img-box { /* background-image: url('여기에_번리전_원더골_또는_푸스카스_시상식_이미지_주소_입력'); */ }
+        .card-04 .card-img-box { /* background-image: url('여기에_골든부트_득점왕_트로피_이미지_주소_입력'); */ }
+        .card-05 .card-img-box { /* background-image: url('여기에_주장_완장을_찬_국대_또는_토트넘_이미지_주소_입력'); */ }
+
+        .card-content {
+            padding: 25px 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-num {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            color: #d4af37;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .career-card h3 {
+            font-size: 17px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-weight: 700;
+            word-break: keep-all;
+        }
+
+        .career-card p {
+            font-size: 13px;
+            color: #a0a0a5;
+            font-weight: 300;
+            text-align: justify;
+            text-align-last: center;
+            line-height: 1.6;
+        }
+
+        /* 푸터 (Footer) */
+        footer {
+            border-top: 1px solid #111113;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+            letter-spacing: 1px;
+        }
+
+        /* 3. 기능 및 환경 요구사항: 반응형 레이아웃 처리 */
+        @media (max-width: 1200px) {
+            .card-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+            .hero-title-box h1 { font-size: 110px; letter-spacing: 15px; }
+        }
+
+        @media (max-width: 768px) {
+            .card-grid { grid-template-columns: 1fr; }
+            .hero-title-box h1 { font-size: 70px; letter-spacing: 10px; }
+            .hero { height: 65vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-title-box">
+            <h1>SON</h1>
+            <p>The Majesty of Football</p>
+        </div>
+    </section>
+
+    <main class="container career-section">
+        <div class="section-title">
+            <h2>CAREER MILESTONES</h2>
+            <p>손흥민 선수의 위대한 5가지 여정</p>
+        </div>
+
+        <div class="card-grid">
+            <div class="career-card card-01">
+                <div class="card-img-box"></div>
+                <div class="card-content">
+                    <span class="card-num">01</span>
+                    <h3>유럽 무대의 서막</h3>
+                    <p>독일 분데스리가 함부르크 SV와 바이언 레버쿠젠에서 폭발적인 스피드로 두각을 나타내며 유럽 스카우터들의 이목을 사로잡았습니다.</p>
+                </div>
+            </div>
+
+            <div class="career-card card-02">
+                <div class="card-img-box"></div>
+                <div class="card-content">
+                    <span class="card-num">02</span>
+                    <h3>PL 런던 입성</h3>
+                    <p>2015년 아시아 선수 역대 최고 이적료를 경신하며 잉글랜드 프리미어리그(EPL) 토트넘 홋스퍼 FC 유니폼을 입었습니다.</p>
+                </div>
+            </div>
+
+            <div class="career-card card-03">
+                <div class="card-img-box"></div>
+                <div class="card-content">
+                    <span class="card-num">03</span>
+                    <h3>푸스카스 영예</h3>
+                    <p>2019년 번리전에서 보여준 경이로운 70m 단독 질주 원더골로 전 세계를 매료시키며 FIFA 푸스카스상을 수상했습니다.</p>
+                </div>
+            </div>
+
+            <div class="career-card card-04">
+                <div class="card-img-box"></div>
+                <div class="card-content">
+                    <span class="card-num">04</span>
+                    <h3>아시아 최초 득점왕</h3>
+                    <p>2021-22 시즌, 페널티킥 없이 순수 필드골 23골을 터뜨리며 아시아인 최초 프리미어리그 골든 부트(득점왕)를 거머쥐었습니다.</p>
+                </div>
+            </div>
+
+            <div class="career-card card-05">
+                <div class="card-img-box"></div>
+                <div class="card-content">
+                    <span class="card-num">05</span>
+                    <h3>캡틴의 리더십</h3>
+                    <p>대한민국 국가대표팀의 상징적인 주장이자 토트넘 구단 역사상 최초의 아시아인 주장으로서 완벽한 리더십을 증명하고 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SON HEUNG-MIN ARCHIVE PROJECT. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
+</html>
